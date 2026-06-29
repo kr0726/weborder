@@ -1,0 +1,1100 @@
+/* ==========================================
+   Design System & Global Variables
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+
+:root {
+  /* Color Palette (Slate Dark Mode) */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Accent Colors */
+  --accent-blue: #38bdf8;
+  --accent-blue-glow: rgba(56, 189, 248, 0.25);
+  --accent-green: #10b981;
+  --accent-green-glow: rgba(16, 185, 129, 0.2);
+  --accent-amber: #f59e0b;
+  --accent-amber-glow: rgba(245, 158, 11, 0.2);
+  --accent-rose: #f43f5e;
+  --accent-rose-glow: rgba(244, 63, 94, 0.2);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(30, 41, 59, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+  /* Typography */
+  --font-sans: 'Inter', 'Zen Maru Gothic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: radial-gradient(circle at 50% 50%, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   Utility Classes & Layouts
+   ========================================== */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #0284c7 100%);
+  color: #0f172a;
+  box-shadow: 0 4px 14px 0 var(--accent-blue-glow);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 var(--accent-blue-glow);
+  filter: brightness(1.1);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--accent-green) 0%, #059669 100%);
+  color: #f8fafc;
+  box-shadow: 0 4px 14px 0 var(--accent-green-glow);
+}
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 var(--accent-green-glow);
+  filter: brightness(1.1);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, var(--accent-amber) 0%, #d97706 100%);
+  color: #0f172a;
+  box-shadow: 0 4px 14px 0 var(--accent-amber-glow);
+}
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 var(--accent-amber-glow);
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================
+   Header Style
+   ========================================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #ffffff, var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .role-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+}
+
+/* ==========================================
+   Role Portal (Landing Screen)
+   ========================================== */
+.portal-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.portal-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(to right, #ffffff, var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portal-title p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.portal-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.portal-card {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.portal-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 12px 40px 0 var(--accent-blue-glow);
+}
+
+.portal-card .icon {
+  font-size: 3rem;
+  background: rgba(255, 255, 255, 0.03);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.portal-card:hover .icon {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: var(--accent-blue);
+  transform: scale(1.1);
+}
+
+.portal-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.portal-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   Staff Combined Tab Interface (統合スタッフ画面)
+   ========================================== */
+.staff-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px;
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  margin-bottom: 25px;
+  gap: 6px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 14px 20px;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn.active {
+  background: var(--bg-tertiary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.tab-content-panel {
+  display: none;
+  flex: 1;
+}
+
+.tab-content-panel.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   Order Tab Interface (から揚げ専用注文UI)
+   ========================================== */
+.order-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Single Product Selection Card */
+.product-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: fit-content;
+}
+
+.product-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.product-emoji {
+  font-size: 4rem;
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+}
+
+.product-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.product-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+/* Flavor Grid (Radio buttons styled as chips) */
+.flavor-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.flavor-section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.flavor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.flavor-chip {
+  cursor: pointer;
+}
+
+.flavor-chip input {
+  display: none;
+}
+
+.flavor-chip span {
+  display: block;
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.flavor-chip:hover span {
+  border-color: rgba(255,255,255,0.2);
+  color: #ffffff;
+}
+
+.flavor-chip input:checked + span {
+  background: var(--accent-blue-glow);
+  border-color: var(--accent-blue);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 0 10px var(--accent-blue-glow);
+}
+
+/* Quantity selector */
+.qty-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  margin-top: 10px;
+}
+
+.qty-control span {
+  font-weight: 600;
+}
+
+.qty-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.qty-btn-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.05);
+  color: #ffffff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.qty-btn-circle:hover {
+  background: rgba(255,255,255,0.1);
+  transform: scale(1.05);
+}
+
+/* Cart Column in Tab */
+.cart-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 400px;
+}
+
+.cart-header {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.cart-item-price {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-weight: bold;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.qty-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cart-footer {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.cart-total .price {
+  color: var(--accent-blue);
+}
+
+/* ==========================================
+   Kitchen Management Tab (厨房管理レイアウト)
+   ========================================== */
+.kitchen-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .kitchen-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kitchen-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.01);
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.column-header {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--glass-border);
+}
+
+.column-header.pending { border-color: var(--accent-amber); color: var(--accent-amber); }
+.column-header.ready { border-color: var(--accent-green); color: var(--accent-green); }
+
+.column-header .badge {
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+.order-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.order-card {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-ticket-num {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.order-time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.order-card-items {
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px 0;
+}
+
+.order-card-items li {
+  font-size: 0.95rem;
+  padding: 2px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.order-card-actions button {
+  flex: 1;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+}
+
+/* ==========================================
+   Display Interface (呼び出し状況表示板)
+   ========================================== */
+.display-layout-fullscreen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: calc(100vh - 120px);
+}
+
+.display-section-fullscreen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.display-section-fullscreen h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ready-tickets-grid-large {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  align-content: flex-start;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.ready-ticket-card-large {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(30, 41, 59, 0.7) 100%);
+  border: 3px solid var(--accent-green);
+  border-radius: 28px;
+  aspect-ratio: 1.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px var(--accent-green-glow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+
+.ready-ticket-card-large::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 25px;
+  box-shadow: inset 0 0 25px var(--accent-green-glow);
+  pointer-events: none;
+}
+
+.ready-ticket-card-large.newly-called {
+  animation: pulse 1.5s infinite alternate, scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-color: #34d399;
+}
+
+.ready-ticket-card-large .num-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.ready-ticket-card-large .num {
+  font-size: 5rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.45);
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+/* ==========================================
+   Modals & Overlays
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 450px;
+  padding: 35px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+/* Ticket Details inside Modal */
+.ticket-wrapper {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 20px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  animation: ticketBounce 0.4s ease-out;
+}
+
+.ticket-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+  background-image: radial-gradient(circle, transparent, transparent 50%, #ffffff 50%, #ffffff 100%);
+  background-size: 12px 12px;
+}
+
+.ticket-header {
+  border-bottom: 2px dashed #cbd5e1;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.ticket-header h4 {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.ticket-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 10px 0;
+}
+
+.ticket-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.ticket-info .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticket-info .items-list {
+  margin-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 10px;
+}
+
+/* Audio Overlay for Display View */
+.audio-unlock-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--bg-primary);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.audio-unlock-overlay h2 {
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+.audio-unlock-overlay p {
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+/* ==========================================
+   Animations
+   ========================================== */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px var(--accent-green-glow);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes ticketBounce {
+  0% { transform: scale(0.3); opacity: 0; }
+  70% { transform: scale(1.05); }\
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================
+   Sales Dashboard
+   ========================================== */
+.sales-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  flex: 1;
+}
+
+.sales-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.kpi-card {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  opacity: 0.07;
+}
+
+.kpi-card .kpi-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.kpi-card .kpi-value {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  line-height: 1.1;
+}
+
+.kpi-card .kpi-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.kpi-blue  .kpi-value { color: var(--accent-blue); }
+.kpi-green .kpi-value { color: var(--accent-green); }
+.kpi-amber .kpi-value { color: var(--accent-amber); }
+.kpi-rose  .kpi-value { color: var(--accent-rose); }
+
+.sales-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 25px;
+}
+
+@media (max-width: 900px) {
+  .sales-grid { grid-template-columns: 1fr; }
+}
+
+.sales-card {
+  padding: 24px;
+}
+
+.sales-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Flavor table */
+.flavor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.flavor-table thead th {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.flavor-table thead th:last-child { text-align: right; }
+
+.flavor-table tbody tr {
+  transition: background 0.15s;
+}
+
+.flavor-table tbody tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.flavor-table tbody td {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  vertical-align: middle;
+}
+
+.flavor-table tbody td:last-child { text-align: right; }
+
+.flavor-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flavor-bar-bg {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.flavor-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-green));
+  transition: width 0.5s ease;
+}
+
+.flavor-bar-pct {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  min-width: 32px;
+  text-align: right;
+}
+
+/* Hourly bar chart canvas */
+.chart-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.chart-wrap canvas {
+  width: 100% !important;
+  border-radius: 8px;
+}
+
+.chart-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 60px 20px;
+  font-size: 1rem;
+}
+
+/* Sales table (recent orders) */
+.sales-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.sales-orders-table thead th {
+  text-align: left;
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sales-orders-table tbody td {
+  padding: 8px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.sales-orders-table tbody tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.status-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.status-pending  { background: var(--accent-amber-glow); color: var(--accent-amber); }
+.status-ready    { background: var(--accent-green-glow);  color: var(--accent-green); }
+.status-completed{ background: rgba(255,255,255,0.06);    color: var(--text-muted); }
+
